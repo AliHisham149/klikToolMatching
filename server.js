@@ -15,7 +15,19 @@ app.listen(port, () => {
 });
 app.use(cors());
 app.use(express.json());
-
+app.get('/',async(req,res)=>{
+    try{
+        res.json({
+            status:200,
+            message:"server running"
+        });
+    }
+        catch(err){
+            console.error(err);
+            return res.status(500).send("Server error");
+        }
+    }
+)
 mongoose.connect('mongodb+srv://klikToolDBTest0:kliktool@friendsformtest0.zr2dwal.mongodb.net/test',
     { useNewUrlParser: true, useUnifiedTopology: true }, err => {
         console.log('connected')

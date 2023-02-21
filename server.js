@@ -5,12 +5,12 @@ const matching = require('./Models/matching.js');
 const mongoose = require('mongoose');
 const { db } = require('./Models/matching.js');
 require('dotenv').config()
-PORT = 3000 || process.env.PORT
+port = process.env.PORT || 3000;
 app = express();
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.listen(PORT, () => {
+app.listen(port, () => {
     console.log('Server successfully started!');
 });
 app.use(cors());
